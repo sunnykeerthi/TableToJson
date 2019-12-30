@@ -63,15 +63,25 @@
 
         function convert() {
             var table = $('#myTableData').tableToJSON();
-            console.log(JSON.stringify(table));
+            table = JSON.stringify(table);
+            table = table.replace(/,\s*$/, "");
+            table = JSON.parse(table);
             document.querySelector("pre").textContent = JSON.stringify(table, null, 2);
         }
     </script>
+
+
+    <style>
+        table#myTableData {
+            border-collapse: collapse;
+            border: 1px solid black;
+        }
+    </style>
 </head>
 
 <body onload="load()">
     <div id="myform">
-        <b>Simple form with name and age ...</b>
+        <b>Enter Aloha tile Details</b>
         <table>
             <tr>
                 <td>URL</td>
@@ -95,7 +105,6 @@
         </table>
     </div>
     <div id="mydata">
-        <b>Current data in the system ...</b>
         <table id="myTableData" border="1" cellpadding="2">
             <tr>
                 <td><b>URL</b></td>
