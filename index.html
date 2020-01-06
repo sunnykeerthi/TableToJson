@@ -22,9 +22,10 @@
             var rowCount = table.rows.length;
             var row = table.insertRow(rowCount);
 
-            row.insertCell(0).innerHTML = url.value;
-            row.insertCell(1).innerHTML = img.value;
-            row.insertCell(2).innerHTML = desc.value;
+            row.insertCell(0).innerHTML = title.value;
+            row.insertCell(1).innerHTML = url.value;
+            row.insertCell(2).innerHTML = img.value;
+            row.insertCell(3).innerHTML = desc.value;
 
         }
 
@@ -64,6 +65,7 @@
         function convert() {
             var table = $('#myTableData').tableToJSON();
             table = JSON.stringify(table);
+            table = table.replace("Title", "title");
             table = table.replace("URL", "url");
             table = table.replace("Image Source", "Imgsrc");
             table = table.replace("Description", "description");
@@ -86,6 +88,10 @@
     <div id="myform">
         <b>Enter Aloha tile Details</b>
         <table>
+            <tr>
+                <td>Title</td>
+                <td><input type="text" id="title"></td>
+            </tr>
             <tr>
                 <td>URL</td>
                 <td><input type="text" id="url"></td>
@@ -110,6 +116,7 @@
     <div id="mydata">
         <table id="myTableData" border="1" cellpadding="2">
             <tr>
+                <td><b>Title</b></td>
                 <td><b>URL</b></td>
                 <td><b>Image Source</b></td>
                 <td><b>Description</b></td>
