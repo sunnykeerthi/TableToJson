@@ -14,10 +14,7 @@
             $.ajax({
                 method: 'POST',
                 url: (proxyurl + url),
-                headers: {
-            'Access-Control-Allow-Origin': '*',
-          },
-                data: {
+              data: {
                     "new": "(abc|def)(ghi|jkl)(ghi|jkl)"
                 }
             }).done(function (response) {
