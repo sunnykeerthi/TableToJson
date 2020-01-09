@@ -9,9 +9,11 @@
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script>
         function postData() {
+            const proxyurl = "https://cors-anywhere.herokuapp.com/";
+            const url= "https://utterancegenerator.herokuapp.com/notes"
             $.ajax({
                 method: 'POST',
-                url: "https://utterancegenerator.herokuapp.com/notes",
+                url: (proxyurl + url),
                 headers: {
             'Access-Control-Allow-Origin': '*',
           },
