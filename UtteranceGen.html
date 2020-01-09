@@ -12,6 +12,9 @@
             $.ajax({
                 method: 'POST',
                 url: "https://utterancegenerator.herokuapp.com/notes",
+                headers: {
+            'Access-Control-Allow-Origin': '*',
+          },
                 data: {
                     "new": "(abc|def)(ghi|jkl)(ghi|jkl)"
                 }
