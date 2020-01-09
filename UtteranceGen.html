@@ -10,13 +10,15 @@
     <script>
         function postData() {
             const proxyurl = "https://cors-anywhere.herokuapp.com/";
-            const url = "https://utterancegenerator.herokuapp.com/notes"
+            const url = "https://utterancegenerator.herokuapp.com/notes";
+           const inpData = {
+                    "new": "(abc|def)(ghi|jkl)(ghi|jkl)"
+                };
             $.ajax({
                 type: "POST",
                 url: (proxyurl + url),
-                data: {
-                    "new": "(abc|def)(ghi|jkl)(ghi|jkl)"
-                },
+                data: JSON.stringify(inpData),
+                contentType: "application/json; charset=utf-8",
                 success: function(data) {
                     console.log("The ajax request succeeded!");
                     console.log("The result is: ");
